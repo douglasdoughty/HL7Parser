@@ -17,8 +17,8 @@ parsed_message = HL7Parser.parse(message, line_separator='\n')
 patient_name = parsed_message.get_value('PID', 1, 5, 1)
 ```
 
-##Functions
-#### get_value(segment_name, repetition, field, sub=0)
+## Functions
+#### get_value(segment_name, repetition, field, sub=1)
 The get_value() function on the ParsedMessage object takes 3 (optionally 4) parameters. The first parameter is the
 string name of the specific segment to get.  The second parameter is which repetition of the segment to get. The third
 parameter is the field to retrieve, and the (optional) fourth parameter is which sub component to retrieve. The
