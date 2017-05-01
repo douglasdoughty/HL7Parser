@@ -8,7 +8,6 @@ line endings (carriage return), then pass the correct line separator as an optio
 ParsedMessage object will be returned.  You can then use the get_value() function on this object to retrieve
 specific values from the message.
 
-#### Quick:
 ```python
 import HL7Parser
 
@@ -17,7 +16,9 @@ parsed_message = HL7Parser.parse(message, line_separator='\n')
 
 patient_name = parsed_message.get_value('PID', 1, 5, 1)
 ```
-#### Function: get_value(segment_name, repetition, field, sub=0)
+
+##Functions
+#### get_value(segment_name, repetition, field, sub=0)
 The get_value() function on the ParsedMessage object takes 3 (optionally 4) parameters. The first parameter is the
 string name of the specific segment to get.  The second parameter is which repetition of the segment to get. The third
 parameter is the field to retrieve, and the (optional) fourth parameter is which sub component to retrieve. The
@@ -34,20 +35,22 @@ attending_doctor = parsed_message.get_value('PV1', 1, 7, 3)
 
 ```
 
-#### Function: segment_count(segment_name)
-The segment_count function on the ParsedMessage object takes 1 parameter: the string name of the segment. It returns
-the number of repetitions of that segment which have been parsed.
+#### segment_count(segment_name=None)
+The segment_count function on the ParsedMessage object takes 1 optional parameter: the string name of the segment.
+It returns the number of repetitions of that segment which have been parsed.  If no segment_name is specified, then a
+total count of all the segments is returned.
 
 Example:
 ```python
 if parsed_message.segment_count('PID') == 2:
     pid_1_date_of_birth = parsed_message.get_value('PID', 1, 7)
     pid_2_date_of_birth = parsed_message.get_value('PID', 2, 7)
-    
+   
+total_segments = parsed_message.segment_count()
 
 ```
 
-#### Function: segment_exists(segment_name)
+#### segment_exists(segment_name)
 The segment_exists function on the ParsedMessage object takes 1 parameter: the string name of the segment.  If the
 segment exists, a True is returned, otherwise False.
 
@@ -56,3 +59,11 @@ Example:
 if parsed_message.segment_exists('PID'):
     # Get pertainant PID segment information
 ```
+
+## Properties
+
+#### raw_message
+The raw_message property on the ParsedMessage object returns the message before it was parsed.
+
+#### raw_message_length
+The raw_message_length property on the ParsedMessage object returns the length of the message before it was parsed.
