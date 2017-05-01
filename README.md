@@ -34,6 +34,19 @@ attending_doctor = parsed_message.get_value('PV1', 1, 7, 3)
 
 ```
 
+#### Function: segment_count(segment_name)
+The segment_count function on the ParsedMessage object takes 1 parameter: the string name of the segment. It returns
+the number of repetitions of that segment which have been parsed.
+
+Example:
+```python
+if parsed_message.segment_count('PID') == 2:
+    pid_1_date_of_birth = parsed_message.get_value('PID', 1, 7)
+    pid_2_date_of_birth = parsed_message.get_value('PID', 2, 7)
+    
+
+```
+
 #### Function: segment_exists(segment_name)
 The segment_exists function on the ParsedMessage object takes 1 parameter: the string name of the segment.  If the
 segment exists, a True is returned, otherwise False.

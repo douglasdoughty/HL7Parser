@@ -15,7 +15,7 @@ class ParsedMessage:
 
 
     def segment_count(self, segment_name):
-        return sum(1 for seg in self.segments if seg.name == segment_name)
+        return len(self.get_segment(segment_name).values)
 
 
     def get_value(self, segment_name, repetition, field,
