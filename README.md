@@ -1,6 +1,8 @@
+[![Build Status](https://travis-ci.org/douglasdoughty/HL7Parser.svg?branch=master)](https://travis-ci.org/douglasdoughty/HL7Parser)
+
 # HL7parser
 Python based HL7 parser to easily pull information from an HL7 message.  The goal of this package is to allow quick access to
-HL7 data stored within an HL7 message.  A great resource for explanations of the HL7 segments exists here:[http://hl7-definition.caristix.com:9010/](http://hl7-definition.caristix.com:9010/)
+HL7 data stored within an HL7 message.  A great resource for explanations of the HL7 segments exists here: [http://hl7-definition.caristix.com:9010/](http://hl7-definition.caristix.com:9010/)
 
 ## Usage:
 After importing HL7Parser, pass a string HL7 message to it's parse() function. If the message doesn't have HL7 default
@@ -11,9 +13,21 @@ specific values from the message.
 ```python
 import HL7Parser
 
-message = """"""
-parsed_message = HL7Parser.parse(message, line_separator='\n')
+example_message = """MSH|^~\&|AccMgr|1|||20050110045504||ADT^A08|599102|P|2.3|||
+EVN|A01|20050110045502|||||
+PID|1||10006579^^^1^MRN^1||DUCK^DONALD^D||19241010|M||1|111 DUCK ST^^FOWL^CA^999990000^^M|1|8885551212|8885551212|1|2||40007716^^^AccMgr^VN^1|123121234|||||||||||NO
+NK1|1|DUCK^HUEY|SO|3583 DUCK RD^^FOWL^CA^999990000|8885552222||Y||||||||||||||
+PV1|1|I|PREOP^101^1^1^^^S|3|||37^DISNEY^WALT^^^^^^AccMgr^^^^CI|||01||||1|||37^DISNEY^WALT^^^^^^AccMgr^^^^CI|2|40007716^^^AccMgr^VN|4|||||||||||||||||||1||G|||20050110045253||||||
+GT1|1|8291|DUCK^DONALD^D||111^DUCK ST^^FOWL^CA^999990000|8885551212||19241010|M||1|123121234||||#Cartoon Ducks Inc|111^DUCK ST^^FOWL^CA^999990000|8885551212||PT|
+DG1|1|I9|71596^OSTEOARTHROS NOS-L/LEG ^I9|OSTEOARTHROS NOS-L/LEG ||A|
+IN1|1|MEDICARE|3|MEDICARE|||||||Cartoon Ducks Inc|19891001|||4|DUCK^DONALD^D|1|19241010|111^DUCK ST^^FOWL^CA^999990000|||||||||||||||||123121234A||||||PT|M|111 DUCK ST^^FOWL^CA^999990000|||||8291
+IN2|1||123121234|Cartoon Ducks Inc|||123121234A|||||||||||||||||||||||||||||||||||||||||||||||||||||||||8885551212"
+"""
 
+# Parse the message
+parsed_message = HL7Parser.parse(example_message, line_separator='\n')
+
+# Pull out specific values based on position
 patient_name = parsed_message.get_value('PID', 1, 5, 1)
 ```
 
@@ -57,7 +71,7 @@ segment exists, a True is returned, otherwise False.
 Example:
 ```python
 if parsed_message.segment_exists('PID'):
-    # Get pertainant PID segment information
+    # Get pertinent PID segment information
 ```
 
 ## Properties
@@ -67,3 +81,7 @@ The raw_message property on the ParsedMessage object returns the message before 
 
 #### raw_message_length
 The raw_message_length property on the ParsedMessage object returns the length of the message before it was parsed.
+
+---
+## Extra
+HL7Parser is tested against python versions 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, 3.5-dev, 3.6, 3.6-dev, 3.7-dev, &amp; nightly using [Travis CI](https://travis-ci.org/). 
