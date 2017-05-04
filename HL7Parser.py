@@ -62,7 +62,7 @@ class ParsedMessage:
 
     def segment_count(self, segment_name=None):
         """Return the number of segments with a certain name or the count of all segments
-        
+
         Keyword arguments:
         segment_name -- optional name of a segment. If provided, this function will
         return the number of segments of the same name.  Otherwise, this function

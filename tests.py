@@ -15,19 +15,43 @@ IN1|3|SELF PAY|1|SELF PAY|||||||||||5||1"""
 
 parsed_message = HL7Parser.parse(message, '\n')
 
-assert parsed_message is not None, "Message did not parse."
-assert parsed_message.raw_message == message, "Raw message not properly saved."
-assert parsed_message.raw_message_length == len(message), "Raw message length not properly returned."
-assert parsed_message.segment_count() == 12, "Total segment count incorrect."
-assert parsed_message.segment_count("MSH") == 1, "MSH segment count incorrect."
-assert parsed_message.segment_count("EVN") == 1, "EVN segment count incorrect."
-assert parsed_message.segment_count("PID") == 1, "PID segment count incorrect."
-assert parsed_message.segment_count("NK1") == 1, "NK1 segment count incorrect."
-assert parsed_message.segment_count("PV1") == 1, "PV1 segment count incorrect."
-assert parsed_message.segment_count("GT1") == 1, "GT1 segment count incorrect."
-assert parsed_message.segment_count("DG1") == 1, "DG1 segment count incorrect."
-assert parsed_message.segment_count("IN1") == 3, "IN1 segment count incorrect."
-assert parsed_message.segment_count("IN2") == 2, "IN2 segment count incorrect."
+if parsed_message is None:
+    raise Exception("Message did not parse")
 
+if parsed_message.raw_message != message:
+    raise Exception("Raw message not properly saved.")
+
+if parsed_message.raw_message_length != len(message):
+    raise Exception("Raw message length not properly returned.")
+
+if parsed_message.segment_count() != 12:
+    raise Exception("Total segment count incorrect.")
+
+if parsed_message.segment_count("MSH") != 1:
+    raise Exception("MSH segment count incorrect.")
+
+if parsed_message.segment_count("EVN") != 1:
+    raise Exception("EVN segment count incorrect.")
+
+if parsed_message.segment_count("PID") != 1:
+    raise Exception("PID segment count incorrect.")
+
+if parsed_message.segment_count("NK1") != 1:
+    raise Exception("NK1 segment count incorrect.")
+
+if parsed_message.segment_count("PV1") != 1:
+    raise Exception("PV1 segment count incorrect.")
+
+if parsed_message.segment_count("GT1") != 1:
+    raise Exception("GT1 segment count incorrect.")
+
+if parsed_message.segment_count("DG1") != 1:
+    raise Exception("DG1 segment count incorrect.")
+
+if parsed_message.segment_count("IN1") != 3:
+    raise Exception("IN1 segment count incorrect.")
+
+if parsed_message.segment_count("IN2") != 2:
+    raise Exception("IN2 segment count incorrect.")
 
 exit(0)
