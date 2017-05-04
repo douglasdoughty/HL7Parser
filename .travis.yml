@@ -11,4 +11,4 @@ python:
   - "3.6-dev"
   - "3.7-dev"
   - "nightly"
-script: tests.py
+script: python tests.py
