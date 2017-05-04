@@ -84,4 +84,5 @@ The raw_message_length property on the ParsedMessage object returns the length o
 
 ---
 ## Extra
-HL7Parser is tested against python versions 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, 3.5-dev, 3.6, 3.6-dev, 3.7-dev, &amp; nightly using [Travis CI](https://travis-ci.org/). 
+HL7Parser is tested against python versions 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, 3.5-dev, 3.6, 3.6-dev, 3.7-dev, &amp; nightly
+on Linux and OSX using [Travis CI](https://travis-ci.org/). 
