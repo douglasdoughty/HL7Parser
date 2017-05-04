@@ -96,6 +96,3 @@ ENV/
 
 # mkdocs documentation
 /site
-
-# Personal testing
-tests.py

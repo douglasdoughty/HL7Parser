@@ -1,5 +1,5 @@
 # HL7parser
-Python based HL7 parser to easily pull pertinentf an HL7 message.  The goal of this package is to allow quick access to
+Python based HL7 parser to easily pull information from an HL7 message.  The goal of this package is to allow quick access to
 HL7 data stored within an HL7 message.  A great resource for explanations of the HL7 segments exists here:[http://hl7-definition.caristix.com:9010/](http://hl7-definition.caristix.com:9010/)
 
 ## Usage:
