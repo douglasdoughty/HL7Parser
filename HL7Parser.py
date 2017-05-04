@@ -61,12 +61,12 @@ class ParsedMessage:
         return segment_name in [seg.name for seg in self.segments]
 
     def segment_count(self, segment_name=None):
-        """Return the number of segments with a certain name or the count of all segments
+        """Return the count of a certain segments or all segments
 
         Keyword arguments:
-        segment_name -- optional name of a segment. If provided, this function will
-        return the number of segments of the same name.  Otherwise, this function
-        will return the total number of segments
+        segment_name -- optional name of a segment. If provided, this
+        function will return the number of segments of the same name.
+        Otherwise, this function returns the total number of segments
         """
         if segment_name is None:
             return sum(len(segment.values) for segment in self.segments)
@@ -91,10 +91,11 @@ class ParsedMessage:
 
         segment = self.get_segment(segment_name)
         if (len(segment.values) > repetition and
-                    len(segment.values[repetition]) > field and
-                    len(segment.values[repetition][field]) > sub):
+                len(segment.values[repetition]) > field and
+                len(segment.values[repetition][field]) > sub):
             return segment.values[repetition][field][sub]
         return None
+
 
 class HL7Segment:
     """HL7 Segment object."""
