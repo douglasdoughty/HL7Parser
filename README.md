@@ -1,6 +1,4 @@
-[![Travis CI Badge](https://travis-ci.org/douglasdoughty/HL7Parser.svg?branch=master)](https://travis-ci.org/douglasdoughty/HL7Parser)
-[![AppVeyor Badge](https://ci.appveyor.com/api/projects/status/4fc4mjuu2u414d6o/branch/master?svg=true)](https://ci.appveyor.com/project/douglasdoughty/hl7parser/branch/master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/217ef68c47094143bd49ee14a6b65097)](https://www.codacy.com/app/douglasdoughty/HL7Parser?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=douglasdoughty/HL7Parser&amp;utm_campaign=Badge_Grade)
+# This project is no longer being supported.
 
 # HL7parser
 Python based HL7 parser to easily pull information from an HL7 message.  The goal of this package is to allow quick access to
